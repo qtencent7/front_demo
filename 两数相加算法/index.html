@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var addTwoNumbers = function (l1, l2) {
+            let length1 = l1.length;
+            let length2 = l2.length;
+            let reverseBenckMark = length1 >= length2 ? length1: length2;
+            if(length1 >= length2) {
+                for(let i = 0; i < length1 - length2; i++) {
+                    l2.push(0)
+                }
+            } else {
+                for(let i = 0; i < length2 - length1; i++) {
+                    l1.push(0)
+                }
+            }
+            let targetArr = []
+            for (let i = 0; i < reverseBenckMark; i++) {
+                targetArr[i] = l1[i] + l2[i]
+            }
+            // console.log(targetArr)
+            targetArr.push(0)
+            // console.log(targetArr)
+            for (let i = 0; i < reverseBenckMark; i++) {
+                if (targetArr[i] >= 10) {
+                    targetArr[i] = String(targetArr[i]);
+                    let targetArr2 = targetArr[i].split('');
+                    let target = targetArr2[0];
+                    targetArr[i] = Number(targetArr2[1]);
+                    targetArr[i + 1] = targetArr[i + 1] + Number(target);
+                    //console.log(targetArr)
+                }
+            }
+            let target = targetArr[targetArr.length - 1];
+            if (target === 0) {
+                targetArr.pop()
+            }
+            return targetArr
+        };
+        const target = addTwoNumbers([2,4,3],[5,6,4]);
+        console.log(target)
+    </script>
+</body>
+
+</html>

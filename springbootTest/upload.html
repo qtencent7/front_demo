@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="file" name="file" id="file">
+        <input type="button" value="提交" onclick="upload()">
+    </form>
+    <a href="http://localhost:8080/app/download?filename=儿童套餐.jpg" download="true">下载</a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <script>
+        function upload() {
+            const file = document.getElementById("file").files[0]
+            const formData = new FormData()
+            formData.append("file", file)
+            axios.post("http://localhost:8080/app/upload", formData
+            ).then(res => {
+                console.log(res)
+            }).catch(err => {
+                console.log(err)
+            })
+        }
+    </script>
+</body>
+</html>

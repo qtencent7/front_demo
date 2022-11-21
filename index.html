@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const person = {
+            a: 1,
+            b: 2,
+            c: 3
+        }
+        Object.defineProperty(person, "d", {
+            get() {
+                console.log("d被获取了")
+            },
+            set(value) {
+                console.log("d被改变了")
+            }
+        })
+        console.log(person.d)
+    </script>
+</body>
+</html>

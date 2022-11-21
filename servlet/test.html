@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>一个Servlet处理多个请求</h1>
+    <hr>
+    <button onclick="queryEmp()">查询员工信息</button>
+    <br />
+    <button onclick="useJDBC()">使用JDBC</button>
+    <br />
+    <button onclick="dispatch()">使用dispatch技术</button>
+    <br>
+    <button onclick="returnData()">returnData</button>
+    <img src="http://localhost:8080/captcha.do" />
+    <br>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <script>
+        axios.defaults.headers.common['token'] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6IjEyMzQ1NiIsImV4cCI6MTY2ODY3NzY1NCwidXNlcm5hbWUiOiJhZG1pbiJ9.3pASSkMi6IrrO7Tqxp1ec2jFMHX0OHxFhe54esIAJVQ";
+        function returnData() {
+            axios.get("http://localhost:8080/returnData.do").then(res => {
+                console.log(res)
+            }).catch(err => {
+                console.log(err)
+            })
+        }
+        function queryEmp() {
+            axios.get("http://localhost:8080/queryEmp.do").then(res => {
+                console.log(res)
+            }).catch(err => {
+                console.log(err)
+            })
+        }
+        function useJDBC() {
+            axios.get("http://localhost:8080/useJDBC.do").then(res => {
+                console.log(res)
+            }).catch(err => {
+                console.log(err)
+            })
+        }
+        function dispatch() {
+            axios.get("http://localhost:8080/dispatch.do").then(res => {
+                console.log(res)
+            }).catch(err => {
+                console.log(err)
+            })
+        }
+    </script>
+</body>
+
+</html>
